@@ -1,0 +1,127 @@
+<div class="screen">
+  <header class="page-header">
+    <div class="page-header-row">
+      <div class="page-title">
+        <img [src]="draft.gender === 'boy' ? 'assets/boy.png' : 'assets/girl.png'" alt="" />
+        <h1>معلومات {{ draft.name || 'الطفل' }}</h1>
+      </div>
+      <a class="back" routerLink="/account" aria-label="رجوع">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path d="M14.5 6 L8.5 12 L14.5 18" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <form class="form" (submit)="$event.preventDefault(); save()">
+    <fieldset class="fields" [disabled]="!editing()">
+    <section class="group">
+      <h2>المعلومات الأساسية</h2>
+
+      <label class="label" for="ch-name">الاسم</label>
+      <input id="ch-name" name="name" class="field" type="text" [(ngModel)]="draft.name" autocomplete="off" />
+
+      <label class="label" for="ch-birth">تاريخ الميلاد</label>
+      <input id="ch-birth" name="birthDate" class="field" type="date" [(ngModel)]="draft.birthDate" />
+
+      <p class="label">الجنس</p>
+      <div class="genders">
+        <button
+          type="button"
+          class="gender"
+          [class.selected]="draft.gender === 'boy'"
+          [attr.aria-pressed]="draft.gender === 'boy'"
+          (click)="draft.gender = 'boy'"
+        >
+          <img src="assets/boy.png" alt="" width="44" height="44" />
+          <span>ولد</span>
+        </button>
+        <button
+          type="button"
+          class="gender"
+          [class.selected]="draft.gender === 'girl'"
+          [attr.aria-pressed]="draft.gender === 'girl'"
+          (click)="draft.gender = 'girl'"
+        >
+          <img src="assets/girl.png" alt="" width="44" height="44" />
+          <span>بنت</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>المعلومات الصحية</h2>
+
+      <label class="label" for="ch-condition">الحالة المرضية</label>
+      <input id="ch-condition" name="condition" class="field" type="text" [(ngModel)]="draft.condition" placeholder="مثال: ربو" autocomplete="off" />
+
+      <div class="pair">
+        <div>
+          <label class="label" for="ch-weight">الوزن (كغ)</label>
+          <input id="ch-weight" name="weight" class="field" type="number" inputmode="decimal" min="0" [(ngModel)]="draft.weight" />
+        </div>
+        <div>
+          <label class="label" for="ch-height">الطول (سم)</label>
+          <input id="ch-height" name="height" class="field" type="number" inputmode="decimal" min="0" [(ngModel)]="draft.height" />
+        </div>
+      </div>
+
+      <label class="label" for="ch-blood">فصيلة الدم</label>
+      <select id="ch-blood" name="bloodType" class="field" [(ngModel)]="draft.bloodType">
+        <option value="">غير محدد</option>
+        @for (type of bloodTypes; track type) {
+          <option [value]="type">{{ type }}</option>
+        }
+      </select>
+
+      <label class="label" for="ch-allergies">الحساسية</label>
+      <input id="ch-allergies" name="allergies" class="field" type="text" [(ngModel)]="draft.allergies" placeholder="مثال: غبار، فول سوداني" autocomplete="off" />
+    </section>
+
+    <section class="group">
+      <h2>الطبيب المعالج</h2>
+
+      <label class="label" for="ch-doctor">اسم الطبيب</label>
+      <input id="ch-doctor" name="doctorName" class="field" type="text" [(ngModel)]="draft.doctorName" autocomplete="off" />
+
+      <label class="label" for="ch-doctor-phone">رقم التواصل</label>
+      <input id="ch-doctor-phone" name="doctorPhone" class="field" type="tel" dir="ltr" [(ngModel)]="draft.doctorPhone" autocomplete="off" />
+
+      <label class="label" for="ch-notes">ملاحظات</label>
+      <textarea id="ch-notes" name="notes" class="field notes" [(ngModel)]="draft.notes"></textarea>
+    </section>
+    </fieldset>
+
+    @if (editing()) {
+      <button type="submit" class="save">حفظ التغييرات</button>
+    } @else {
+      <button type="button" class="save" (click)="editing.set(true)">تعديل</button>
+    }
+  </form>
+
+  <nav class="bottom-nav" aria-label="التنقل">
+    <a class="nav-item active" routerLink="/account" aria-label="الحساب">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <circle cx="12" cy="7.5" r="3.6" fill="currentColor" stroke="currentColor" stroke-width="1.4" />
+        <path d="M4.8 20.5c.3-4 3.2-6.6 7.2-6.6s6.9 2.6 7.2 6.6z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+      </svg>
+    </a>
+    <a class="nav-item" routerLink="/analytics" aria-label="التحليلات">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path d="M10.5 5.5A7.5 7.5 0 1 0 18 13h-7.5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+        <path d="M13.5 3a7.5 7.5 0 0 1 7.5 7.5h-7.5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+      </svg>
+    </a>
+    <a class="nav-item" routerLink="/home" aria-label="الرئيسية">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path d="M4 10.4 10.6 4.6a2.1 2.1 0 0 1 2.8 0L20 10.4v8.1a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18.5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+        <path d="M12 15.6v2.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+      </svg>
+    </a>
+    <a class="nav-item" routerLink="/emergency" aria-label="الطوارئ">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path d="M6.6 3.6h2.6l1.5 4-2 1.6a13.5 13.5 0 0 0 6.1 6.1l1.6-2 4 1.5v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.8a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+      </svg>
+    </a>
+  </nav>
+</div>

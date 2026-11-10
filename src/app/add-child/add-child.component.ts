@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,4 +7,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './add-child.component.html',
   styleUrl: './add-child.component.scss',
 })
-export class AddChildComponent {}
+export class AddChildComponent {
+  readonly gender = signal<'boy' | 'girl' | null>(null);
+}

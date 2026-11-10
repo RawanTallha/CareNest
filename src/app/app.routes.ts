@@ -10,6 +10,9 @@ import { ActivityFormComponent } from './activity-form/activity-form.component';
 import { TriggersComponent } from './triggers/triggers.component';
 import { DailyComponent } from './daily/daily.component';
 import { EmergencyComponent } from './emergency/emergency.component';
+import { AccountComponent } from './account/account.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
+import { ChildEditComponent } from './child-edit/child-edit.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'signin' },
@@ -24,4 +27,7 @@ export const routes: Routes = [
   { path: 'triggers', component: TriggersComponent },
   { path: 'daily', component: DailyComponent },
   { path: 'emergency', component: EmergencyComponent },
+  { path: 'account', component: AccountComponent },
+  { path: 'account/children/:id', component: ChildEditComponent },
+  { path: 'analytics', component: AnalyticsComponent },
 ];

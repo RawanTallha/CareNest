@@ -1,7 +1,15 @@
 {
   "children": [
-    { "id": 1, "name": "احمد", "age": 5, "ageText": "خمسة سنوات", "gender": "boy", "color": "blue", "condition": "مريض ربو" },
-    { "id": 2, "name": "الاء", "age": 12, "ageText": "اثنا عشر سنة", "gender": "girl", "color": "pink", "condition": "" }
+    {
+      "id": 1, "name": "احمد", "age": 5, "ageText": "خمسة سنوات", "gender": "boy", "color": "blue", "condition": "مريض ربو",
+      "birthDate": "2021-03-14", "weight": "18", "height": "108", "bloodType": "O+", "allergies": "غبار، وبر القطط",
+      "doctorName": "د. خالد العتيبي", "doctorPhone": "0112345678", "notes": "يستخدم البخاخ الوقائي صباحاً ومساءً"
+    },
+    {
+      "id": 2, "name": "الاء", "age": 12, "ageText": "اثنا عشر سنة", "gender": "girl", "color": "pink", "condition": "",
+      "birthDate": "2014-07-02", "weight": "38", "height": "149", "bloodType": "A+", "allergies": "",
+      "doctorName": "", "doctorPhone": "", "notes": ""
+    }
   ],
   "homeMenu": [
     { "label": "المتابعة اليومية", "image": "medicine.png", "color": "daily", "route": "/daily" },
@@ -76,6 +84,7 @@
     { "id": "cold", "label": "طقس بارد", "count": 3 }
   ],
   "emergencyNumber": "997",
+  "account": { "name": "سارة محمد", "email": "example@gmail.com", "phone": "0551234567" },
   "medStreakDays": 5,
   "medications": [
     {
