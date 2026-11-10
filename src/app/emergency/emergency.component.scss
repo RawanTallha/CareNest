@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.emergency-row {
+  height: 50px;
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.emergency-row .brand {
+  justify-self: start;
+}
+
+.emergency-row h1 {
+  margin: 0;
+  color: #0a223c;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.emergency {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 46px 24px 100px;
+  text-align: center;
+}
+
+.emergency h2 {
+  margin: 0;
+  color: #000000;
+  font-size: 34px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.emergency p {
+  margin: 18px 0 0;
+  color: #b5b5b5;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.call-button {
+  width: 154px;
+  height: 154px;
+  margin-top: 104px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #d57e7b;
+  box-shadow:
+    0 0 0 13px #d78482,
+    0 0 0 27px #df9e9d,
+    0 0 6px 40px rgba(229, 179, 178, 0.75),
+    0 0 18px 48px rgba(236, 202, 201, 0.6);
+}
+
+.call-button:active {
+  background: #cf6f6c;
+}

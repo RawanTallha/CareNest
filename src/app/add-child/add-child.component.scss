@@ -1,0 +1,84 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.form {
+  padding: 8px 22px 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+.q {
+  margin: 18px 0 8px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1c1c1e;
+}
+
+.text-field {
+  position: relative;
+  height: 46px;
+  border: 1px solid #e4e2e8;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.text-field input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  padding: 0 14px;
+  font-size: 14px;
+  color: #2c2c30;
+  text-align: right;
+}
+
+.text-field input::placeholder {
+  color: #c8c8cc;
+}
+
+.with-icon input {
+  padding-left: 46px;
+}
+
+.cal {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+}
+
+.genders {
+  direction: ltr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.gender {
+  min-height: 112px;
+  border: 1.5px solid #e4e4e6;
+  border-radius: 16px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px 6px 10px;
+  color: #2a2a2a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.condition {
+  text-align: center;
+}
+
+.create {
+  margin-top: 22px;
+}

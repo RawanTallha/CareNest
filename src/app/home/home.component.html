@@ -1,0 +1,97 @@
+<div class="screen">
+  <header class="home-header">
+    <div class="status">
+      <span>9:41</span>
+      <span class="status-icons">
+        <svg viewBox="0 0 18 12" width="17" height="12" aria-hidden="true">
+          <rect x="0" y="7.5" width="3" height="4.5" rx="0.6" fill="#111" />
+          <rect x="4.5" y="5" width="3" height="7" rx="0.6" fill="#111" />
+          <rect x="9" y="2.4" width="3" height="9.6" rx="0.6" fill="#111" />
+          <rect x="13.5" y="0" width="3" height="12" rx="0.6" fill="#111" />
+        </svg>
+        <svg viewBox="0 0 16 12" width="16" height="12" aria-hidden="true">
+          <path d="M8 10.2a1.3 1.3 0 1 0 0.01 0z" fill="#111" />
+          <path d="M3.2 7.2a6.6 6.6 0 0 1 9.6 0" fill="none" stroke="#111" stroke-width="1.3" stroke-linecap="round" />
+          <path d="M0.8 4.6a10 10 0 0 1 14.4 0" fill="none" stroke="#111" stroke-width="1.3" stroke-linecap="round" />
+        </svg>
+        <svg viewBox="0 0 27 13" width="25" height="12" aria-hidden="true">
+          <rect x="0.6" y="0.6" width="22" height="11.8" rx="2.4" fill="none" stroke="#111" stroke-width="1.2" />
+          <rect x="2" y="2" width="16" height="9" rx="1.2" fill="#111" />
+          <rect x="23.6" y="4" width="2" height="5" rx="0.8" fill="#111" />
+        </svg>
+      </span>
+    </div>
+
+    <div class="home-actions">
+      <svg class="brand" viewBox="0 0 82 26" width="80" height="25" role="img" aria-label="CareNest">
+        <text x="1" y="17" direction="ltr" text-anchor="start">CareNest</text>
+        <g transform="rotate(-38 69 15)" stroke="#262626" stroke-width="1" stroke-linejoin="round">
+          <rect x="59" y="12.5" width="17" height="5" fill="#f8e08e" />
+          <rect x="76" y="12.5" width="3.5" height="5" rx="1" fill="#f2a7c3" />
+          <path d="M59 12.5 L54.5 15 L59 17.5 Z" fill="#fbe9c6" />
+          <path d="M56.2 14 L54.5 15 L56.2 16 Z" fill="#262626" />
+        </g>
+      </svg>
+
+      <a class="switch-btn" routerLink="/children" aria-label="تبديل الطفل">
+        <svg viewBox="0 0 28 28" width="26" height="26" aria-hidden="true">
+          <g fill="none" stroke="#1d1d1d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8.5" cy="6.5" r="2.6" />
+            <path d="M3.8 14.2c0-2.6 2-4.3 4.7-4.3s4.7 1.7 4.7 4.3z" />
+            <circle cx="19.5" cy="16.5" r="2.6" />
+            <path d="M14.8 24.2c0-2.6 2-4.3 4.7-4.3s4.7 1.7 4.7 4.3z" />
+            <path d="M15.5 4.2c3 .4 5.4 2.6 6 5.6" />
+            <path d="M20 8.6l1.6 1.6 1.4-1.9" />
+            <path d="M12.5 23.8c-3-.4-5.4-2.6-6-5.6" />
+            <path d="M8 19.4l-1.6-1.6-1.4 1.9" />
+          </g>
+        </svg>
+      </a>
+    </div>
+
+    <div class="child-summary">
+      <div class="child-identity">
+        <span class="child-avatar">
+          <img src="assets/boy.png" alt="" />
+        </span>
+        <div class="child-name">
+          <h1>{{ child.name }}</h1>
+          <span>{{ child.ageText }}</span>
+        </div>
+      </div>
+      <span class="condition">{{ child.condition }}</span>
+    </div>
+  </header>
+
+  <section class="menu" aria-label="قائمة الطفل">
+    @for (item of menuItems; track item.label) {
+      <a class="menu-card" [class]="item.color" [routerLink]="item.route">
+        <svg class="blob" viewBox="0 0 310 104" preserveAspectRatio="none" aria-hidden="true">
+          <path [attr.d]="blobs[item.color]" />
+        </svg>
+        <img [src]="'assets/' + item.image" alt="" />
+        <span class="menu-label">{{ item.label }}</span>
+      </a>
+    }
+  </section>
+
+  <nav class="bottom-nav" aria-label="التنقل">
+    <a class="nav-item" routerLink="/children" aria-label="الملف الشخصي">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <circle cx="12" cy="7.5" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4" />
+        <path d="M4.8 20.5c.3-4 3.2-6.6 7.2-6.6s6.9 2.6 7.2 6.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+      </svg>
+    </a>
+    <a class="nav-item active" routerLink="/home" aria-label="الرئيسية">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path d="M4 10.4 10.6 4.6a2.1 2.1 0 0 1 2.8 0L20 10.4v8.1a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18.5z" fill="currentColor" />
+        <path d="M12 15.6v2.2" stroke="#dfeff1" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
+    </a>
+    <a class="nav-item" routerLink="/emergency" aria-label="الطوارئ">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path d="M6.6 3.6h2.6l1.5 4-2 1.6a13.5 13.5 0 0 0 6.1 6.1l1.6-2 4 1.5v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.8a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+      </svg>
+    </a>
+  </nav>
+</div>

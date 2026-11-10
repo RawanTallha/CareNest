@@ -1,0 +1,136 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.signin {
+  background: #faeaaf;
+}
+
+.logo {
+  width: 158px;
+  height: auto;
+  display: block;
+  margin: 6px auto -72px;
+  position: relative;
+  z-index: 2;
+}
+
+.sheet {
+  background: #ffffff;
+  border-radius: 36px 36px 0 0;
+  flex: 1;
+  padding: 92px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  margin: 4px 0 6px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.lead {
+  margin: 0 0 22px;
+  text-align: center;
+  color: #b0aeb4;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.combo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  min-height: 54px;
+  border: 1px solid #e3e1e6;
+  border-radius: 12px;
+  padding: 7px 14px;
+  margin-bottom: 12px;
+  background: #ffffff;
+}
+
+.combo span {
+  font-size: 11px;
+  color: #b7b6bb;
+  text-align: right;
+}
+
+.combo input {
+  border: 0;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #2c2c30;
+  text-align: right;
+  width: 100%;
+}
+
+.password {
+  padding-left: 46px;
+}
+
+.eye {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #d5d5d8;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.forgot {
+  align-self: flex-start;
+  margin: 0 0 4px;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: #b5b4b9;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.primary {
+  margin-top: 16px;
+}
+
+.signup-row {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 2px 22px;
+}
+
+.signup-row p {
+  margin: 0;
+  color: #a3a3a8;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.signup {
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1.5px solid #8fb0b3;
+  background: #ffffff;
+  color: #3a3a3a;
+  font-size: 13px;
+  font-weight: 600;
+}

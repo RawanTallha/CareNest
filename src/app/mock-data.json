@@ -1,0 +1,124 @@
+{
+  "children": [
+    { "id": 1, "name": "احمد", "age": 5, "ageText": "خمسة سنوات", "gender": "boy", "color": "blue", "condition": "مريض ربو" },
+    { "id": 2, "name": "الاء", "age": 12, "ageText": "اثنا عشر سنة", "gender": "girl", "color": "pink", "condition": "" }
+  ],
+  "homeMenu": [
+    { "label": "المتابعة اليومية", "image": "medicine.png", "color": "daily", "route": "/daily" },
+    { "label": "تفاصيل النوبة", "image": "report.png", "color": "episode", "route": "/episodes" },
+    { "label": "النشاط الجسدي اليومي", "image": "Exercise.png", "color": "activity", "route": "/activity" },
+    { "label": "سجل المحفزات", "image": "checklist.png", "color": "triggers", "route": "/triggers" },
+    { "label": "ملاحظات الطبيب", "image": "doctor.png", "color": "notes", "route": null }
+  ],
+  "episodes": [
+    {
+      "id": 1,
+      "type": "نوبة ربو متوسطة",
+      "date": "2026/11/02",
+      "time": "08:30 م",
+      "duration": "20 دقيقة",
+      "onset": "سعال متواصل بعد اللعب في الخارج",
+      "earlySymptoms": "ضيق في التنفس وصفير في الصدر",
+      "during": "صعوبة في الكلام وتسارع التنفس",
+      "handling": "الجلوس بوضعية مستقيمة واستخدام البخاخ",
+      "emergencyPlan": true,
+      "medication": "فنتولين",
+      "currentState": "مستقر",
+      "inhalerUsed": true,
+      "inhalerDose": "فنتولين - بختين",
+      "doseRepeated": false,
+      "wentToER": false
+    },
+    {
+      "id": 2,
+      "type": "نوبة ربو خفيفة",
+      "date": "2026/10/18",
+      "time": "06:15 ص",
+      "duration": "10 دقائق",
+      "onset": "كحة عند الاستيقاظ",
+      "earlySymptoms": "انسداد الانف وسعال جاف",
+      "during": "صفير خفيف في الصدر",
+      "handling": "استخدام البخاخ وشرب الماء الدافئ",
+      "emergencyPlan": false,
+      "medication": "لا يوجد",
+      "currentState": "تحسن ملحوظ",
+      "inhalerUsed": true,
+      "inhalerDose": "فنتولين - بخة واحدة",
+      "doseRepeated": true,
+      "wentToER": false
+    }
+  ],
+  "activities": [
+    {
+      "id": 1,
+      "date": "2026/11/08",
+      "type": "ركوب الدراجة",
+      "duration": "30 دقيقة",
+      "symptoms": "لا يوجد",
+      "notes": "استمتع بالنشاط وأخذ استراحة قصيرة في المنتصف"
+    },
+    {
+      "id": 2,
+      "date": "2026/11/06",
+      "type": "كرة القدم",
+      "duration": "45 دقيقة",
+      "symptoms": "سعال خفيف بعد الركض",
+      "notes": "توقف عن اللعب واستخدم البخاخ ثم تحسن"
+    }
+  ],
+  "triggerPeriod": "آخر 30 يوم",
+  "triggers": [
+    { "id": "dust", "label": "غبار", "count": 9 },
+    { "id": "smells", "label": "روائح قوية", "count": 6 },
+    { "id": "smoke", "label": "دخان", "count": 4 },
+    { "id": "exercise", "label": "تمرين بدني", "count": 5 },
+    { "id": "animals", "label": "حيوانات", "count": 2 },
+    { "id": "cold", "label": "طقس بارد", "count": 3 }
+  ],
+  "emergencyNumber": "997",
+  "medStreakDays": 5,
+  "medications": [
+    {
+      "id": "flixotide",
+      "name": "فليكسوتايد",
+      "form": "بخاخ وقائي",
+      "purpose": "يقلل التهاب الشعب الهوائية ويمنع النوبات على المدى الطويل",
+      "asNeeded": null
+    },
+    {
+      "id": "vitd",
+      "name": "فيتامين د",
+      "form": "نقط بالفم",
+      "purpose": "يدعم المناعة وصحة العظام",
+      "asNeeded": null
+    },
+    {
+      "id": "montelukast",
+      "name": "مونتيلوكاست",
+      "form": "قرص للمضغ 4 ملغ",
+      "purpose": "يمنع نوبات الربو ويخفف أعراض الحساسية",
+      "asNeeded": null
+    },
+    {
+      "id": "cetirizine",
+      "name": "سيتريزين",
+      "form": "شراب",
+      "purpose": "مضاد للحساسية يخفف العطاس وسيلان الانف",
+      "asNeeded": null
+    },
+    {
+      "id": "ventolin",
+      "name": "فنتولين",
+      "form": "بخاخ اسعافي",
+      "purpose": "يوسع الشعب الهوائية بسرعة عند ضيق التنفس",
+      "asNeeded": "عند ضيق التنفس أو قبل الرياضة بـ 15 دقيقة"
+    }
+  ],
+  "medSchedule": [
+    { "id": "d1", "medId": "flixotide", "period": "morning", "time": "8:00 ص", "dose": "بختين", "note": "بعد الفطور، مع المضمضة بعده" },
+    { "id": "d2", "medId": "vitd", "period": "morning", "time": "9:00 ص", "dose": "5 قطرات", "note": "بعد الفطور" },
+    { "id": "d3", "medId": "flixotide", "period": "evening", "time": "7:30 م", "dose": "بختين", "note": "بعد العشاء، مع المضمضة بعده" },
+    { "id": "d4", "medId": "cetirizine", "period": "evening", "time": "8:00 م", "dose": "5 مل", "note": "بعد العشاء" },
+    { "id": "d5", "medId": "montelukast", "period": "evening", "time": "8:30 م", "dose": "قرص واحد", "note": "قبل النوم بساعة" }
+  ]
+}

@@ -1,0 +1,81 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 36px 110px;
+}
+
+.label {
+  display: block;
+  margin: 24px 8px 10px 0;
+  color: #331b1a;
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 500;
+}
+
+.label.first {
+  margin-top: 0;
+}
+
+.field {
+  width: 100%;
+  height: 46px;
+  padding: 0 12px;
+  border: 1px solid #8d9093;
+  border-radius: 8px;
+  outline: none;
+  background: #f6f6f6;
+  color: #331b1a;
+  font-size: 15px;
+  text-align: right;
+}
+
+.field.compact {
+  height: 38px;
+}
+
+.field.small {
+  height: 44px;
+}
+
+.trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.trio .label {
+  margin-right: 4px;
+}
+
+.yes-no {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.yes-no .field {
+  text-align: center;
+  font-size: 13px;
+}
+
+.yes-no .field.selected {
+  border-color: #4f868d;
+  box-shadow: inset 0 0 0 1px #4f868d;
+}
+
+.save {
+  height: 50px;
+  margin: 56px -10px 0;
+  border: 0;
+  border-radius: 20px;
+  background: #4f868d;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+}
