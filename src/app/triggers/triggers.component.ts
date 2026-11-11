@@ -1,6 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import mockData from '../mock-data.json';
+import { CurrentChildService } from '../current-child.service';
 
 interface Trigger {
   id: string;
@@ -16,7 +17,8 @@ interface Trigger {
 })
 export class TriggersComponent {
   readonly period = mockData.triggerPeriod;
-  readonly triggers = signal<Trigger[]>(mockData.triggers);
+  private readonly childId = inject(CurrentChildService).id();
+  readonly triggers = signal<Trigger[]>(mockData.triggers.filter((t) => t.childId === this.childId));
   readonly today = new Intl.DateTimeFormat('ar-u-ca-gregory-nu-latn', {
     weekday: 'long',
     day: 'numeric',

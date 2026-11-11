@@ -172,7 +172,7 @@
 
 .menu-card.triggers {
   background: #fadfe4;
-  .blob path { fill: #f7cbd4; }
+  .blob path { fill: #fac3ce; }
   img {
     right: 22px;
     width: 80px;
@@ -189,4 +189,177 @@
     width: 104px;
     height: 104px;
   }
+}
+
+.menu-card.appointments {
+  background: #fdd7d3;
+  .blob path { fill: #eb8d85; }
+  img {
+    right: 22px;
+    width: 78px;
+    height: 78px;
+  }
+}
+
+.reminder {
+  position: relative;
+  margin: 22px 20px 0;
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  border: 1px solid #e3e3e6;
+  border-radius: 26px;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.reminder-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 72px;
+}
+
+.reminder-corner path {
+  fill: #ffdf6b;
+}
+
+.dose-top,
+.dose-body,
+.dose-taken,
+.appt-line {
+  position: relative;
+}
+
+.dose-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dose-form {
+  padding: 4px 12px;
+  border-radius: 10px;
+  background: #e4f3f4;
+  color: #2f5f65;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dose-time {
+  height: 32px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #123257;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.dose-body {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dose-box {
+  width: 70px;
+  height: 64px;
+  flex: 0 0 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 16px;
+  background: #4f868d;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dose-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dose-info strong {
+  color: #123257;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.dose-note {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #4a5a6a;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dose-note svg {
+  flex: 0 0 16px;
+}
+
+.dose-taken {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 22px;
+  background: #e4f3f4;
+  color: #4f868d;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.dose-taken.done {
+  background: #4f868d;
+  color: #ffffff;
+}
+
+.appt-line {
+  margin: 0;
+  padding-top: 11px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-top: 1px dashed #dcdcdf;
+  color: #123257;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.appt-line .nowrap {
+  white-space: nowrap;
+}
+
+.appt-line.solo {
+  padding-top: 26px;
+  border-top: 0;
+}
+
+.appt-line svg {
+  flex: 0 0 18px;
+}
+
+.appt-line a {
+  color: #d9594c;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }

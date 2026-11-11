@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import mockData from '../mock-data.json';
+import { CurrentChildService } from '../current-child.service';
 
 @Component({
   selector: 'app-activity',
@@ -9,5 +10,6 @@ import mockData from '../mock-data.json';
   styleUrl: './activity.component.scss',
 })
 export class ActivityComponent {
-  readonly activities = mockData.activities;
+  private readonly childId = inject(CurrentChildService).id();
+  readonly activities = mockData.activities.filter((a) => a.childId === this.childId);
 }

@@ -3,12 +3,23 @@
     {
       "id": 1, "name": "احمد", "age": 5, "ageText": "خمسة سنوات", "gender": "boy", "color": "blue", "condition": "مريض ربو",
       "birthDate": "2021-03-14", "weight": "18", "height": "108", "bloodType": "O+", "allergies": "غبار، وبر القطط",
-      "doctorName": "د. خالد العتيبي", "doctorPhone": "0112345678", "notes": "يستخدم البخاخ الوقائي صباحاً ومساءً"
+      "doctorName": "د. خالد العتيبي", "doctorPhone": "0112345678", "notes": "يستخدم البخاخ الوقائي صباحاً ومساءً",
+      "medStreak": 5,
+      "meds": [
+        { "name": "فليكسوتايد", "dose": "بختين", "prescription": "صباحاً ومساءً، مع المضمضة بعده" },
+        { "name": "مونتيلوكاست 4 ملغ", "dose": "قرص واحد", "prescription": "يومياً قبل النوم بساعة" },
+        { "name": "فنتولين", "dose": "بختين", "prescription": "عند الحاجة فقط عند ضيق التنفس" }
+      ]
     },
     {
-      "id": 2, "name": "الاء", "age": 12, "ageText": "اثنا عشر سنة", "gender": "girl", "color": "pink", "condition": "",
-      "birthDate": "2014-07-02", "weight": "38", "height": "149", "bloodType": "A+", "allergies": "",
-      "doctorName": "", "doctorPhone": "", "notes": ""
+      "id": 2, "name": "الاء", "age": 12, "ageText": "اثنا عشر سنة", "gender": "girl", "color": "pink", "condition": "حساسية موسمية",
+      "birthDate": "2014-07-02", "weight": "38", "height": "149", "bloodType": "A+", "allergies": "حبوب اللقاح",
+      "doctorName": "د. نورة القحطاني", "doctorPhone": "0119876543", "notes": "تزداد الأعراض في الربيع",
+      "medStreak": 12,
+      "meds": [
+        { "name": "لوراتادين", "dose": "قرص واحد", "prescription": "يومياً صباحاً" },
+        { "name": "فيتامين د", "dose": "قرص واحد", "prescription": "يومياً بعد الفطور" }
+      ]
     }
   ],
   "homeMenu": [
@@ -16,11 +27,13 @@
     { "label": "تفاصيل النوبة", "image": "report.png", "color": "episode", "route": "/episodes" },
     { "label": "النشاط الجسدي اليومي", "image": "Exercise.png", "color": "activity", "route": "/activity" },
     { "label": "سجل المحفزات", "image": "checklist.png", "color": "triggers", "route": "/triggers" },
-    { "label": "ملاحظات الطبيب", "image": "doctor.png", "color": "notes", "route": null }
+    { "label": "ملاحظات الطبيب", "image": "doctor.png", "color": "notes", "route": "/notes" },
+    { "label": "المواعيد", "image": "appointment.png", "color": "appointments", "route": "/appointments" }
   ],
   "episodes": [
     {
       "id": 1,
+      "childId": 1,
       "type": "نوبة ربو متوسطة",
       "date": "2026/11/02",
       "time": "08:30 م",
@@ -39,6 +52,7 @@
     },
     {
       "id": 2,
+      "childId": 1,
       "type": "نوبة ربو خفيفة",
       "date": "2026/10/18",
       "time": "06:15 ص",
@@ -54,11 +68,50 @@
       "inhalerDose": "فنتولين - بخة واحدة",
       "doseRepeated": true,
       "wentToER": false
+    },
+    {
+      "id": 3,
+      "childId": 1,
+      "type": "نوبة ربو حادة",
+      "date": "2026/09/27",
+      "time": "11:40 م",
+      "duration": "35 دقيقة",
+      "onset": "ضيق تنفس مفاجئ ليلاً",
+      "earlySymptoms": "سعال ليلي متكرر",
+      "during": "صعوبة شديدة في التنفس",
+      "handling": "تفعيل خطة الطوارئ والتوجه للطوارئ",
+      "emergencyPlan": true,
+      "medication": "فنتولين",
+      "currentState": "مستقر بعد العلاج",
+      "inhalerUsed": true,
+      "inhalerDose": "فنتولين - 4 بخات",
+      "doseRepeated": true,
+      "wentToER": true
+    },
+    {
+      "id": 4,
+      "childId": 2,
+      "type": "نوبة حساسية",
+      "date": "2026/11/05",
+      "time": "04:00 م",
+      "duration": "40 دقيقة",
+      "onset": "عطاس متكرر بعد الخروج للحديقة",
+      "earlySymptoms": "حكة في العين وسيلان الانف",
+      "during": "احمرار العينين وانسداد الانف",
+      "handling": "غسل الوجه وأخذ قرص لوراتادين",
+      "emergencyPlan": false,
+      "medication": "لوراتادين",
+      "currentState": "تحسن",
+      "inhalerUsed": false,
+      "inhalerDose": "",
+      "doseRepeated": false,
+      "wentToER": false
     }
   ],
   "activities": [
     {
       "id": 1,
+      "childId": 1,
       "date": "2026/11/08",
       "type": "ركوب الدراجة",
       "duration": "30 دقيقة",
@@ -67,28 +120,182 @@
     },
     {
       "id": 2,
+      "childId": 1,
       "date": "2026/11/06",
       "type": "كرة القدم",
       "duration": "45 دقيقة",
       "symptoms": "سعال خفيف بعد الركض",
       "notes": "توقف عن اللعب واستخدم البخاخ ثم تحسن"
+    },
+    {
+      "id": 3,
+      "childId": 2,
+      "date": "2026/11/09",
+      "type": "سباحة",
+      "duration": "60 دقيقة",
+      "symptoms": "لا يوجد",
+      "notes": "نشاط ممتاز بدون أي أعراض"
+    },
+    {
+      "id": 4,
+      "childId": 2,
+      "date": "2026/11/04",
+      "type": "مشي في الحديقة",
+      "duration": "25 دقيقة",
+      "symptoms": "عطاس وحكة في العين",
+      "notes": "الأعراض بدأت بعد المشي قرب الأشجار المزهرة"
     }
   ],
   "triggerPeriod": "آخر 30 يوم",
   "triggers": [
-    { "id": "dust", "label": "غبار", "count": 9 },
-    { "id": "smells", "label": "روائح قوية", "count": 6 },
-    { "id": "smoke", "label": "دخان", "count": 4 },
-    { "id": "exercise", "label": "تمرين بدني", "count": 5 },
-    { "id": "animals", "label": "حيوانات", "count": 2 },
-    { "id": "cold", "label": "طقس بارد", "count": 3 }
+    { "childId": 1, "id": "dust", "label": "غبار", "count": 9 },
+    { "childId": 1, "id": "smells", "label": "روائح قوية", "count": 6 },
+    { "childId": 1, "id": "smoke", "label": "دخان", "count": 4 },
+    { "childId": 1, "id": "exercise", "label": "تمرين بدني", "count": 5 },
+    { "childId": 1, "id": "animals", "label": "حيوانات", "count": 2 },
+    { "childId": 1, "id": "cold", "label": "طقس بارد", "count": 3 },
+    { "childId": 1, "id": "incense", "label": "بخور", "count": 4 },
+    { "childId": 2, "id": "pollen", "label": "حبوب اللقاح", "count": 8 },
+    { "childId": 2, "id": "dust", "label": "غبار", "count": 3 },
+    { "childId": 2, "id": "animals", "label": "حيوانات", "count": 1 },
+    { "childId": 2, "id": "smells", "label": "روائح قوية", "count": 2 },
+    { "childId": 2, "id": "incense", "label": "بخور", "count": 2 },
+    { "childId": 2, "id": "cold", "label": "طقس بارد", "count": 0 }
   ],
   "emergencyNumber": "997",
+  "appointments": [
+    { "id": 1, "childId": 1, "doctor": "د. خالد العتيبي", "reason": "مراجعة الربو وتقييم البخاخ الوقائي", "date": "2026-11-16T10:00", "remind": "day" },
+    { "id": 2, "childId": 1, "doctor": "د. خالد العتيبي", "reason": "فحص وظائف الرئة", "date": "2026-12-02T09:30", "remind": "hour" },
+    { "id": 3, "childId": 1, "doctor": "د. خالد العتيبي", "reason": "مراجعة دورية", "date": "2026-10-28T10:30", "remind": "day" },
+    { "id": 4, "childId": 2, "doctor": "د. نورة القحطاني", "reason": "متابعة الحساسية الموسمية", "date": "2026-11-20T16:00", "remind": "day" },
+    { "id": 5, "childId": 2, "doctor": "د. نورة القحطاني", "reason": "زيارة أولى للحساسية", "date": "2026-10-20T16:00", "remind": "none" }
+  ],
+  "reports": {
+    "ranges": [
+      {
+        "childId": 1,
+        "key": "week",
+        "label": "هذا الأسبوع",
+        "pattern": "2 من أصل 3 نوبات هذا الأسبوع حدثت بعد اللعب في الخارج",
+        "buckets": [
+          { "label": "سبت", "symptoms": 1, "meds": 5 },
+          { "label": "أحد", "symptoms": 0, "meds": 5 },
+          { "label": "اثنين", "symptoms": 2, "meds": 4 },
+          { "label": "ثلاثاء", "symptoms": 0, "meds": 5 },
+          { "label": "أربعاء", "symptoms": 3, "meds": 5 },
+          { "label": "خميس", "symptoms": 1, "meds": 3 },
+          { "label": "جمعة", "symptoms": 0, "meds": 5 }
+        ]
+      },
+      {
+        "childId": 1,
+        "key": "month",
+        "label": "هذا الشهر",
+        "pattern": "3 من أصل 5 نوبات حدثت بعد الغداء",
+        "buckets": [
+          { "label": "أسبوع 1", "symptoms": 6, "meds": 30 },
+          { "label": "أسبوع 2", "symptoms": 3, "meds": 34 },
+          { "label": "أسبوع 3", "symptoms": 8, "meds": 27 },
+          { "label": "أسبوع 4", "symptoms": 2, "meds": 35 }
+        ]
+      },
+      {
+        "childId": 1,
+        "key": "quarter",
+        "label": "آخر 3 أشهر",
+        "pattern": "الأعراض تقل في الأسابيع التي يُلتزم فيها بالبخاخ الوقائي",
+        "buckets": [
+          { "label": "سبتمبر", "symptoms": 24, "meds": 118 },
+          { "label": "أكتوبر", "symptoms": 17, "meds": 131 },
+          { "label": "نوفمبر", "symptoms": 9, "meds": 142 }
+        ]
+      },
+      {
+        "childId": 2,
+        "key": "week",
+        "label": "هذا الأسبوع",
+        "pattern": "الأعراض ظهرت في يومين بعد الخروج إلى الحديقة",
+        "buckets": [
+          { "label": "سبت", "symptoms": 0, "meds": 2 },
+          { "label": "أحد", "symptoms": 2, "meds": 2 },
+          { "label": "اثنين", "symptoms": 0, "meds": 2 },
+          { "label": "ثلاثاء", "symptoms": 0, "meds": 2 },
+          { "label": "أربعاء", "symptoms": 3, "meds": 2 },
+          { "label": "خميس", "symptoms": 0, "meds": 1 },
+          { "label": "جمعة", "symptoms": 0, "meds": 2 }
+        ]
+      },
+      {
+        "childId": 2,
+        "key": "month",
+        "label": "هذا الشهر",
+        "pattern": "معظم الأعراض حدثت في فترة العصر عند الخروج",
+        "buckets": [
+          { "label": "أسبوع 1", "symptoms": 4, "meds": 14 },
+          { "label": "أسبوع 2", "symptoms": 2, "meds": 13 },
+          { "label": "أسبوع 3", "symptoms": 1, "meds": 14 },
+          { "label": "أسبوع 4", "symptoms": 3, "meds": 12 }
+        ]
+      },
+      {
+        "childId": 2,
+        "key": "quarter",
+        "label": "آخر 3 أشهر",
+        "pattern": "الأعراض تزداد مع تغير الطقس وارتفاع حبوب اللقاح",
+        "buckets": [
+          { "label": "سبتمبر", "symptoms": 6, "meds": 55 },
+          { "label": "أكتوبر", "symptoms": 11, "meds": 58 },
+          { "label": "نوفمبر", "symptoms": 10, "meds": 53 }
+        ]
+      }
+    ],
+    "exports": [
+      { "childId": 1, "id": 2, "title": "تقرير لشهر أكتوبر", "date": "2026-11-01T09:15", "items": ["سجل الأدوية", "سجل الأعراض", "ملاحظات الزيارات"] },
+      { "childId": 1, "id": 1, "title": "تقرير لشهر سبتمبر", "date": "2026-10-02T18:40", "items": ["سجل الأدوية", "سجل الأعراض"] },
+      { "childId": 1, "id": 0, "title": "تقرير لشهر أغسطس", "date": "2026-09-01T12:00", "items": ["سجل الأدوية"] },
+      { "childId": 2, "id": 3, "title": "تقرير لشهر أكتوبر", "date": "2026-11-02T10:00", "items": ["سجل الأدوية", "سجل الأعراض"] }
+    ]
+  },
+  "visitTags": ["تعديل دواء", "تعليمات جديدة", "مراجعة", "اخرى"],
+  "visitNotes": [
+    {
+      "id": 2,
+      "childId": 1,
+      "date": "2026-10-28T10:30",
+      "tags": ["تعديل دواء"],
+      "text": "رفع جرعة البخاخ الوقائي الى بختين صباحاً ومساءً لمدة شهر ثم المراجعة.",
+      "attachment": "تقرير_الزيارة.jpg"
+    },
+    {
+      "id": 1,
+      "childId": 1,
+      "date": "2026-09-15T17:00",
+      "tags": ["مراجعة", "تعليمات جديدة"],
+      "text": "ربو خفيف متقطع. تجنب الغبار والدخان، واستخدام فنتولين عند الحاجة فقط.",
+      "attachment": ""
+    },
+    {
+      "id": 0,
+      "childId": 1,
+      "date": "2026-08-03T09:00",
+      "tags": ["تعليمات جديدة"],
+      "text": "فحص دوري. الاستمرار على فيتامين د ومراجعة بعد شهر.",
+      "attachment": ""
+    },
+    {
+      "id": 3,
+      "childId": 2,
+      "date": "2026-10-20T16:00",
+      "tags": ["مراجعة", "تعديل دواء"],
+      "text": "حساسية موسمية. لوراتادين يومياً خلال موسم الربيع، وغسل الوجه بعد العودة من الخارج.",
+      "attachment": ""
+    }
+  ],
   "account": { "name": "سارة محمد", "email": "example@gmail.com", "phone": "0551234567" },
-  "medStreakDays": 5,
   "medications": [
     {
       "id": "flixotide",
+      "childId": 1,
       "name": "فليكسوتايد",
       "form": "بخاخ وقائي",
       "purpose": "يقلل التهاب الشعب الهوائية ويمنع النوبات على المدى الطويل",
@@ -96,6 +303,7 @@
     },
     {
       "id": "vitd",
+      "childId": 1,
       "name": "فيتامين د",
       "form": "نقط بالفم",
       "purpose": "يدعم المناعة وصحة العظام",
@@ -103,6 +311,7 @@
     },
     {
       "id": "montelukast",
+      "childId": 1,
       "name": "مونتيلوكاست",
       "form": "قرص للمضغ 4 ملغ",
       "purpose": "يمنع نوبات الربو ويخفف أعراض الحساسية",
@@ -110,6 +319,7 @@
     },
     {
       "id": "cetirizine",
+      "childId": 1,
       "name": "سيتريزين",
       "form": "شراب",
       "purpose": "مضاد للحساسية يخفف العطاس وسيلان الانف",
@@ -117,10 +327,35 @@
     },
     {
       "id": "ventolin",
+      "childId": 1,
       "name": "فنتولين",
       "form": "بخاخ اسعافي",
       "purpose": "يوسع الشعب الهوائية بسرعة عند ضيق التنفس",
       "asNeeded": "عند ضيق التنفس أو قبل الرياضة بـ 15 دقيقة"
+    },
+    {
+      "id": "loratadine",
+      "childId": 2,
+      "name": "لوراتادين",
+      "form": "أقراص 10 ملغ",
+      "purpose": "مضاد للحساسية يخفف العطاس وحكة العين",
+      "asNeeded": null
+    },
+    {
+      "id": "vitd-2",
+      "childId": 2,
+      "name": "فيتامين د",
+      "form": "أقراص",
+      "purpose": "يدعم المناعة وصحة العظام",
+      "asNeeded": null
+    },
+    {
+      "id": "eye-drops",
+      "childId": 2,
+      "name": "قطرة عين مضادة للحساسية",
+      "form": "قطرة",
+      "purpose": "تخفف حكة واحمرار العين",
+      "asNeeded": "عند حكة العين، قطرة في كل عين"
     }
   ],
   "medSchedule": [
@@ -128,6 +363,8 @@
     { "id": "d2", "medId": "vitd", "period": "morning", "time": "9:00 ص", "dose": "5 قطرات", "note": "بعد الفطور" },
     { "id": "d3", "medId": "flixotide", "period": "evening", "time": "7:30 م", "dose": "بختين", "note": "بعد العشاء، مع المضمضة بعده" },
     { "id": "d4", "medId": "cetirizine", "period": "evening", "time": "8:00 م", "dose": "5 مل", "note": "بعد العشاء" },
-    { "id": "d5", "medId": "montelukast", "period": "evening", "time": "8:30 م", "dose": "قرص واحد", "note": "قبل النوم بساعة" }
+    { "id": "d5", "medId": "montelukast", "period": "evening", "time": "8:30 م", "dose": "قرص واحد", "note": "قبل النوم بساعة" },
+    { "id": "d6", "medId": "loratadine", "period": "morning", "time": "7:00 ص", "dose": "قرص واحد", "note": "قبل الذهاب للمدرسة" },
+    { "id": "d7", "medId": "vitd-2", "period": "morning", "time": "7:30 ص", "dose": "قرص واحد", "note": "بعد الفطور" }
   ]
 }

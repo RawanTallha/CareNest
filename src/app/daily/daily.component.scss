@@ -223,6 +223,31 @@
   text-decoration-color: rgba(30, 61, 91, 0.45);
 }
 
+.add-med {
+  height: 56px;
+  margin: 20px 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1.5px dashed #4f868d;
+  border-radius: 22px;
+  background: #ffffff;
+  color: #1e3d5b;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.add-med .plus-icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #4f868d;
+}
+
 .sheet-backdrop {
   position: fixed;
   inset: 0;

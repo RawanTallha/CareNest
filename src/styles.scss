@@ -203,16 +203,23 @@ button {
   background: #f4f4f4;
 }
 
-.history.episode {
-  background: #e1f4f4;
-}
-
-.history.activity {
-  background: #fef8ea;
-}
-
+.history.episode,
+.history.activity,
 .history.triggers {
-  background: #fdeef1;
+  background: #f0f0f0;
+}
+
+.see-all {
+  margin-right: auto;
+  height: 28px;
+  padding: 0 12px;
+  border: 1px solid #4f868d;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #4f868d;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .history-head {
@@ -300,6 +307,28 @@ button {
   line-height: 1.5;
 }
 
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid #4f868d;
+  border-radius: 17px;
+  background: #ffffff;
+  color: #4f868d;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pill.selected {
+  background: #4f868d;
+  color: #ffffff;
+}
+
 .bottom-nav {
   position: fixed;
   z-index: 5;
@@ -321,8 +350,8 @@ button {
 
 .nav-item {
   position: relative;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   color: #a9b9d1;
@@ -336,7 +365,7 @@ button {
 .nav-item.active::before {
   content: "";
   position: absolute;
-  top: -14px;
+  top: -11px;
   left: 50%;
   width: 84px;
   height: 6px;

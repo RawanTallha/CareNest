@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import mockData from '../mock-data.json';
 import { Router } from '@angular/router';
+import { CurrentChildService } from '../current-child.service';
 
 interface ChildProfile {
   id: number;
@@ -19,9 +20,10 @@ interface ChildProfile {
 })
 export class ChildProfilesComponent {
   readonly children = mockData.children as ChildProfile[];
-  constructor(private router: Router) {}
+  constructor(private router: Router, private currentChild: CurrentChildService) {}
 
 goTo(id: number) {
+  this.currentChild.select(id);
   this.router.navigate(['/home']);
 }
 

@@ -1,0 +1,59 @@
+<div class="screen signin">
+  <img class="logo" src="assets/carenest_logo.png" alt="CareNest" />
+
+  <main class="sheet">
+    <h1>انشئ حسابك الآن</h1>
+    <p class="lead">جديد هنا؟ إبدا رحلتك معنا!</p>
+
+    <div class="roles">
+      <button
+        type="button"
+        class="role"
+        [class.selected]="role() === 'parent'"
+        [attr.aria-pressed]="role() === 'parent'"
+        (click)="role.set('parent')"
+      >
+        <img src="assets/parents.png" alt="" />
+        <span>ولي امر</span>
+      </button>
+      <button
+        type="button"
+        class="role"
+        [class.selected]="role() === 'teacher'"
+        [attr.aria-pressed]="role() === 'teacher'"
+        (click)="role.set('teacher')"
+      >
+        <img src="assets/teacher.png" alt="" />
+        <span>معلم</span>
+      </button>
+    </div>
+
+    <label class="combo">
+      <span>الاسم</span>
+      <input type="text" placeholder="ادخل اسمك الكامل" autocomplete="off" />
+    </label>
+
+    <label class="combo">
+      <span>البريد الالكتروني</span>
+      <input type="email" placeholder="example@gmail.com" autocomplete="off" />
+    </label>
+
+    <label class="combo password">
+      <span>كلمة المرور</span>
+      <input [type]="showPassword ? 'text' : 'password'" placeholder="••••••" autocomplete="off" />
+      <button type="button" class="eye" (click)="showPassword = !showPassword" aria-label="إظهار كلمة المرور">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z" fill="none" stroke="#8d8d92" stroke-width="1.6" />
+          <circle cx="12" cy="12" r="2.4" fill="none" stroke="#8d8d92" stroke-width="1.6" />
+        </svg>
+      </button>
+    </label>
+
+    <button type="button" class="primary" routerLink="/children/add">التالي</button>
+
+    <div class="signup-row">
+      <p>لديك حساب بالفعل؟</p>
+      <button type="button" class="signup" routerLink="/signin">تسجيل دخول</button>
+    </div>
+  </main>
+</div>

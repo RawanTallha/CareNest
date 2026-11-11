@@ -117,6 +117,99 @@
   box-shadow: inset 0 0 0 1px #4b94d8;
 }
 
+.group h2 + .med-row,
+.group h2 + .med-edit,
+.group h2 + .empty-meds {
+  margin-top: 12px;
+}
+
+.med-row {
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #d8d8dc;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.med-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  color: #1e3d5b;
+}
+
+.med-text strong {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.med-text small {
+  color: #4a5a6a;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d8d8dc;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #4f868d;
+}
+
+.icon-btn.delete {
+  color: #b5454f;
+}
+
+.med-edit {
+  margin-bottom: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #4f868d;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.med-done {
+  align-self: flex-end;
+  height: 34px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 17px;
+  background: #4f868d;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.add-med {
+  width: 100%;
+  height: 44px;
+  border: 1.5px dashed #4f868d;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #4f868d;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.empty-meds {
+  margin: 12px 0 8px;
+  color: #8d9093;
+  font-size: 13px;
+}
+
 .save {
   height: 52px;
   margin-top: 6px;

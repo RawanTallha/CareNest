@@ -1,0 +1,93 @@
+<div class="screen">
+  <header class="page-header">
+    <div class="page-header-row">
+      <div class="page-title">
+        <img src="assets/medicine.png" alt="" />
+        <h1>اضافة دواء / علاج</h1>
+      </div>
+      <a class="back" routerLink="/daily" aria-label="رجوع">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path d="M14.5 6 L8.5 12 L14.5 18" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <form class="form" (submit)="$event.preventDefault(); save()">
+    <label class="label first" for="med-name">اسم الدواء</label>
+    <input id="med-name" name="name" class="field" type="text" [(ngModel)]="name" placeholder="مثال: فنتولين" autocomplete="off" />
+
+    <label class="label" for="med-form">نوع الدواء</label>
+    <input id="med-form" name="form" class="field" type="text" [(ngModel)]="form" placeholder="مثال: بخاخ، شراب، أقراص" autocomplete="off" />
+
+    <label class="label" for="med-purpose">الغرض منه</label>
+    <input id="med-purpose" name="purpose" class="field" type="text" [(ngModel)]="purpose" autocomplete="off" />
+
+    <p class="label">موعد الجرعة</p>
+    <div class="pills">
+      @for (p of periods; track p.key) {
+        <button
+          type="button"
+          class="pill"
+          [class.selected]="period === p.key"
+          [attr.aria-pressed]="period === p.key"
+          (click)="period = p.key"
+        >
+          {{ p.label }}
+        </button>
+      }
+    </div>
+
+    @if (period !== 'asNeeded') {
+      <div class="pair">
+        <div>
+          <label class="label" for="med-time">الساعة</label>
+          <input id="med-time" name="time" class="field" type="time" [(ngModel)]="time" />
+        </div>
+        <div>
+          <label class="label" for="med-dose">الجرعة</label>
+          <input id="med-dose" name="dose" class="field" type="text" [(ngModel)]="dose" placeholder="مثال: بختين" autocomplete="off" />
+        </div>
+      </div>
+    }
+
+    <label class="label" for="med-note">{{ period === 'asNeeded' ? 'متى يستخدم؟' : 'ملاحظة' }}</label>
+    <input
+      id="med-note"
+      name="note"
+      class="field"
+      type="text"
+      [(ngModel)]="note"
+      [placeholder]="period === 'asNeeded' ? 'مثال: عند ضيق التنفس' : 'مثال: بعد الغداء'"
+      autocomplete="off"
+    />
+
+    <button type="submit" class="save" [disabled]="!name.trim()">حفظ</button>
+  </form>
+
+  <nav class="bottom-nav" aria-label="التنقل">
+    <a class="nav-item" routerLink="/account" aria-label="الحساب">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <circle cx="12" cy="7.5" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4" />
+        <path d="M4.8 20.5c.3-4 3.2-6.6 7.2-6.6s6.9 2.6 7.2 6.6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+      </svg>
+    </a>
+    <a class="nav-item" routerLink="/reports" aria-label="التقارير">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path d="M10.5 5.5A7.5 7.5 0 1 0 18 13h-7.5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+        <path d="M13.5 3a7.5 7.5 0 0 1 7.5 7.5h-7.5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+      </svg>
+    </a>
+    <a class="nav-item active" routerLink="/home" aria-label="الرئيسية">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path d="M4 10.4 10.6 4.6a2.1 2.1 0 0 1 2.8 0L20 10.4v8.1a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18.5z" fill="currentColor" />
+        <path d="M12 15.6v2.2" stroke="#dfeff1" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
+    </a>
+    <a class="nav-item" routerLink="/emergency" aria-label="الطوارئ">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path d="M6.6 3.6h2.6l1.5 4-2 1.6a13.5 13.5 0 0 0 6.1 6.1l1.6-2 4 1.5v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.8a2 2 0 0 1 2-2.2z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+      </svg>
+    </a>
+  </nav>
+</div>
