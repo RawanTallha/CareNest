@@ -292,6 +292,41 @@
     }
   ],
   "account": { "name": "سارة محمد", "email": "example@gmail.com", "phone": "0551234567" },
+  "teacher": { "name": "أ. رهف الغامدي", "subject": "معلمة رياضيات", "email": "rahaf@school.edu.sa", "phone": "0557654321" },
+  "classes": [
+    { "id": "1-1", "label": "صف 1\\1" },
+    { "id": "2-3", "label": "صف 2\\3" },
+    { "id": "2-4", "label": "صف 2\\4" }
+  ],
+  "students": [
+    {
+      "id": 1, "classId": "2-4", "childId": 1, "name": "احمد", "gender": "boy", "ageText": "خمسة سنوات", "birthDate": "2021-03-14",
+      "condition": "مريض ربو", "father": "علي احمد", "fatherPhone": "0551112233", "mother": "سارة محمد", "motherPhone": "0551234567", "requested": false
+    },
+    {
+      "id": 2, "classId": "2-4", "childId": 2, "name": "الاء احمد", "gender": "girl", "ageText": "اثنا عشر سنة", "birthDate": "2014-07-02",
+      "condition": "حساسية موسمية", "father": "علي احمد", "fatherPhone": "0551112233", "mother": "سارة محمد", "motherPhone": "0551234567", "requested": false
+    },
+    {
+      "id": 3, "classId": "2-4", "childId": 0, "name": "يوسف ماجد", "gender": "boy", "ageText": "سبع سنوات", "birthDate": "2019-05-09",
+      "condition": "حساسية طعام", "father": "ماجد سعيد", "fatherPhone": "0553332211", "mother": "هند علي", "motherPhone": "0556667788", "requested": false
+    },
+    {
+      "id": 4, "classId": "1-1", "childId": 0, "name": "سلمان خالد", "gender": "boy", "ageText": "ست سنوات", "birthDate": "2020-01-22",
+      "condition": "مريض سكري", "father": "خالد ناصر", "fatherPhone": "0558889900", "mother": "منى عبدالله", "motherPhone": "0552223344", "requested": false
+    },
+    {
+      "id": 5, "classId": "1-1", "childId": 0, "name": "نورة فهد", "gender": "girl", "ageText": "ست سنوات", "birthDate": "2020-08-30",
+      "condition": "مريضة ربو", "father": "فهد سالم", "fatherPhone": "0554443322", "mother": "ريم حمد", "motherPhone": "0557778899", "requested": false
+    },
+    {
+      "id": 6, "classId": "2-3", "childId": 0, "name": "ريم سعد", "gender": "girl", "ageText": "سبع سنوات", "birthDate": "2019-11-04",
+      "condition": "مريضة صرع", "father": "سعد محمد", "fatherPhone": "0559990011", "mother": "لمى فيصل", "motherPhone": "0551119988", "requested": false
+    }
+  ],
+  "sharedReports": [
+    { "id": 1, "studentId": 1, "title": "تقرير هذا الشهر", "rangeKey": "month", "date": "2026-11-05T19:20", "items": ["سجل الأدوية", "سجل الأعراض", "ملاحظات الزيارات"] }
+  ],
   "medications": [
     {
       "id": "flixotide",

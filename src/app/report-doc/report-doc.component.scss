@@ -1,0 +1,97 @@
+:host {
+  display: block;
+}
+
+.doc {
+  color: #1e3d5b;
+  font-size: 13px;
+}
+
+.doc-meta {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #4a5a6a;
+}
+
+.doc-meta b {
+  color: #123257;
+}
+
+.doc-stats {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stat {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+}
+
+.stat strong {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.stat span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.stat.symptoms {
+  background: #fdeef1;
+  color: #9a3a4f;
+}
+
+.stat.meds {
+  background: #e1f4f4;
+  color: #3f7880;
+}
+
+.doc-pattern {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fef3d0;
+  line-height: 1.5;
+}
+
+h3 {
+  margin: 18px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ececec;
+  color: #123257;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.doc-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.doc-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.doc-list strong {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.doc-list span {
+  color: #4a5a6a;
+  line-height: 1.5;
+}

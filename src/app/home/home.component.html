@@ -87,7 +87,7 @@
             <circle cx="12" cy="12" r="9" fill="currentColor" />
             <path d="M8 12.3l2.7 2.7L16 9.7" fill="none" [attr.stroke]="taken() ? '#4f868d' : '#ffffff'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          {{ taken() ? 'تم أخذ الجرعة' : 'تم الأخذ' }}
+          {{ taken() ? 'تم أخذ الجرعة' : 'لم يتم الاخذ بعد' }}
         </button>
       }
 
@@ -103,10 +103,12 @@
     </section>
   }
 
+  <h2 class="menu-title">استكشف الخدمات</h2>
+
   <section class="menu" aria-label="قائمة الطفل">
     @for (item of menuItems; track item.label) {
       <a class="menu-card" [class]="item.color" [routerLink]="item.route">
-        <svg class="blob" viewBox="0 0 310 104" preserveAspectRatio="none" aria-hidden="true">
+        <svg class="blob" viewBox="0 0 170 100" preserveAspectRatio="none" aria-hidden="true">
           <path [attr.d]="blobs[item.color]" />
         </svg>
         <img [src]="'assets/' + item.image" alt="" />

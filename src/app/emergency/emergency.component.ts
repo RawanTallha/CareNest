@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import mockData from '../mock-data.json';
 
 @Component({
@@ -9,5 +9,6 @@ import mockData from '../mock-data.json';
   styleUrl: './emergency.component.scss',
 })
 export class EmergencyComponent {
+  readonly isTeacher = inject(ActivatedRoute).snapshot.data['teacher'] === true;
   readonly phoneHref = `tel:${mockData.emergencyNumber}`;
 }

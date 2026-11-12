@@ -2,12 +2,13 @@ import { Component, HostListener, computed, inject, signal } from '@angular/core
 import { RouterLink } from '@angular/router';
 import mockData from '../mock-data.json';
 import { CurrentChildService } from '../current-child.service';
+import { ReportDocComponent } from '../report-doc/report-doc.component';
 
 type ExportEntry = (typeof mockData.reports.exports)[number];
 
 @Component({
   selector: 'app-reports',
-  imports: [RouterLink],
+  imports: [RouterLink, ReportDocComponent],
   templateUrl: './reports.component.html',
   styleUrl: './reports.component.scss',
 })
@@ -24,15 +25,14 @@ export class ReportsComponent {
   readonly showAllExports = signal(false);
   readonly showPreview = signal(false);
 
-  readonly medications = mockData.medications
-    .filter((med) => med.childId === this.child.id)
-    .map((med) => ({
-      ...med,
-      doses: mockData.medSchedule.filter((d) => d.medId === med.id),
-    }));
-  readonly episodes = mockData.episodes.filter((e) => e.childId === this.child.id);
-  readonly visitNotes = mockData.visitNotes.filter((n) => n.childId === this.child.id);
   readonly today = new Date().toISOString();
+  readonly includedItems = computed(() => this.includeOptions.filter((o) => this.included().has(o)));
+
+  readonly teacher = mockData.teacher;
+  readonly student = mockData.students.find((s) => s.childId === this.child.id);
+  readonly requested = signal(this.student?.requested ?? false);
+  readonly lastShared = signal(this.latestShared());
+  readonly sent = signal(false);
 
   readonly range = computed(() => this.ranges.find((r) => r.key === this.rangeKey()) ?? this.ranges[0]);
   readonly maxValue = computed(() =>
@@ -87,8 +87,31 @@ export class ReportsComponent {
     this.exported.set(true);
   }
 
+  sendToTeacher(): void {
+    const items = this.includedItems();
+    if (!this.student || !items.length) {
+      return;
+    }
+    mockData.sharedReports.unshift({
+      id: Date.now(),
+      studentId: this.student.id,
+      title: `تقرير ${this.range().label}`,
+      rangeKey: this.rangeKey(),
+      date: new Date().toISOString(),
+      items,
+    });
+    this.student.requested = false;
+    this.requested.set(false);
+    this.lastShared.set(this.latestShared());
+    this.sent.set(true);
+  }
+
   formatDate(value: string): string {
     return this.dateFormat.format(new Date(value.replace(/\//g, '-')));
+  }
+
+  private latestShared() {
+    return mockData.sharedReports.find((r) => r.studentId === this.student?.id);
   }
 
   private childExports(): ExportEntry[] {

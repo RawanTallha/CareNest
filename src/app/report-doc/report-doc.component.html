@@ -1,0 +1,63 @@
+<div class="doc">
+  <div class="doc-meta">
+    <span><b>الطفل:</b> {{ child().name }} · {{ child().ageText }}</span>
+    <span><b>الحالة:</b> {{ child().condition || 'غير محدد' }}</span>
+    <span><b>الفترة:</b> {{ range().label }}</span>
+    <span><b>تاريخ التقرير:</b> {{ formatDate(date()) }}</span>
+  </div>
+
+  <div class="doc-stats">
+    <div class="stat symptoms">
+      <strong>{{ totals().symptoms }}</strong>
+      <span>أعراض مسجلة</span>
+    </div>
+    <div class="stat meds">
+      <strong>{{ totals().meds }}</strong>
+      <span>جرعات أدوية</span>
+    </div>
+  </div>
+
+  <p class="doc-pattern"><b>ملاحظة:</b> {{ range().pattern }}</p>
+
+  @if (has('سجل الأدوية')) {
+    <h3>سجل الأدوية</h3>
+    <ul class="doc-list">
+      @for (med of medications(); track med.id) {
+        <li>
+          <strong>{{ med.name }}</strong>
+          <span>
+            @for (dose of med.doses; track dose.id; let last = $last) {
+              {{ dose.time }} · {{ dose.dose }}@if (!last) {، }
+            } @empty {
+              {{ med.asNeeded }}
+            }
+          </span>
+        </li>
+      }
+    </ul>
+  }
+
+  @if (has('سجل الأعراض')) {
+    <h3>سجل الأعراض والنوبات</h3>
+    <ul class="doc-list">
+      @for (episode of episodes(); track episode.id) {
+        <li>
+          <strong>{{ formatDate(episode.date) }} · {{ episode.type }}</strong>
+          <span>المدة {{ episode.duration }} · {{ episode.handling }}</span>
+        </li>
+      }
+    </ul>
+  }
+
+  @if (has('ملاحظات الزيارات')) {
+    <h3>ملاحظات الزيارات</h3>
+    <ul class="doc-list">
+      @for (note of visitNotes(); track note.id) {
+        <li>
+          <strong>{{ formatDate(note.date) }}</strong>
+          <span>{{ note.text }}</span>
+        </li>
+      }
+    </ul>
+  }
+</div>

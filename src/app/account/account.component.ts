@@ -1,6 +1,6 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import mockData from '../mock-data.json';
 
 type Account = typeof mockData.account;
@@ -12,12 +12,15 @@ type Account = typeof mockData.account;
   styleUrl: './account.component.scss',
 })
 export class AccountComponent {
-  readonly account = signal<Account>({ ...mockData.account });
+  readonly isTeacher = inject(ActivatedRoute).snapshot.data['teacher'] === true;
+  private readonly source: Account = this.isTeacher ? mockData.teacher : mockData.account;
+
+  readonly account = signal<Account>({ ...this.source });
   readonly children = mockData.children;
-  readonly initial = computed(() => this.account().name.trim().charAt(0));
+  readonly initial = computed(() => this.account().name.replace(/^أ\.\s*/, '').trim().charAt(0));
 
   readonly editing = signal(false);
-  draft: Account = { ...mockData.account };
+  draft: Account = { ...this.source };
 
   readonly notifications = signal(true);
 
@@ -31,7 +34,7 @@ export class AccountComponent {
   }
 
   saveEdit(): void {
-    Object.assign(mockData.account, this.draft);
+    Object.assign(this.source, this.draft);
     this.account.set({ ...this.draft });
     this.editing.set(false);
   }

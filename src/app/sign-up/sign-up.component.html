@@ -49,7 +49,7 @@
       </button>
     </label>
 
-    <button type="button" class="primary" routerLink="/children/add">التالي</button>
+    <button type="button" class="primary" [routerLink]="role() === 'teacher' ? '/teacher' : '/children/add'">التالي</button>
 
     <div class="signup-row">
       <p>لديك حساب بالفعل؟</p>

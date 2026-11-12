@@ -17,6 +17,7 @@ import { MedFormComponent } from './med-form/med-form.component';
 import { VisitNotesComponent } from './visit-notes/visit-notes.component';
 import { ReportsComponent } from './reports/reports.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
+import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'signin' },
@@ -39,4 +40,7 @@ export const routes: Routes = [
   { path: 'account/children/:id', component: ChildEditComponent },
   { path: 'analytics', pathMatch: 'full', redirectTo: 'reports' },
   { path: 'reports', component: ReportsComponent },
+  { path: 'teacher', component: TeacherHomeComponent },
+  { path: 'teacher/emergency', component: EmergencyComponent, data: { teacher: true } },
+  { path: 'teacher/account', component: AccountComponent, data: { teacher: true } },
 ];
